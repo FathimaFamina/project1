@@ -1,0 +1,68 @@
+
+
+{% extends 'master.html' %}
+
+{% block title  %}
+Personal Details of {{ person.fname }} {{ person.lname }}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container">
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-4 mb-sm-5">
+                <div class="card card-style1 border-0">
+                    <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <img class="img-fluid" src="{{ person.img.url }}" alt="">
+                            </div>
+                            <div class="col-lg-6 px-xl-10">
+                                <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                                    <h3 class="h2 text-white mb-0">{{ person.fname }} {{ person.lname }}</h3>
+                                    <span class="text-primary">Coach</span>
+                                </div>
+                                <ul class="list-unstyled mb-1-9">
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Position:</span> Coach</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email:</span> {{ person.email }}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Mob no:</span> {{ person.mob }}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Address:</span> {{ person.city }} , {{ person.state }} , {{ person.pin }}</li>
+
+                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">DOB:</span> {{ person.dob }}</li>
+                                </ul>
+                                <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                                    <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+                                    <li><a href="#!"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="#!"><i class="ti-pinterest"></i></a></li>
+                                    <li><a href="#!"><i class="ti-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    <p><a class="btn btn-warning" href="update/">Update</a></p>
+
+    <p><a class="btn btn-danger" href="deleteperson/">Delete</a></p>
+
+</section>
+
+
+
+
+
+<p><a class="btn btn-primary" href="/persons">Go back to Persons  list </a></p>
+<p><a class="btn btn-secondary" href="/">Go back to Main Page</a></p>
+</div>    
+
+{% endblock %}
+
+

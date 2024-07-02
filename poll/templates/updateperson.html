@@ -1,0 +1,94 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+
+<div class="row">
+
+<div class="col-7 mx-auto mt-5 mb-5 border rounded">
+
+
+<form action="/updateperson/{{ person.id }}/" class="row g-3 needs-validation mt-3" novalidate method="POST">
+    {% csrf_token %}
+
+    <h1>Update Person Details</h1>
+    <hr>
+    <div class="col-md-6">
+      <label for="validationCustom01" class="form-label">First name</label>
+      <input type="text" class="form-control" id="fname" name="fname" value="{{ person.fname }}" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="validationCustom02" class="form-label">Last name</label>
+      <input type="text" class="form-control" id="lname" name="lname" value="{{ person.lname }}" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-12">
+      <label for="validationCustomUsername" class="form-label">Email id</label>
+        <input  disabled readonly type="text" class="form-control" id="email" value="{{ person.email }}" name="email" aria-describedby="inputGroupPrepend" required>
+        <div class="invalid-feedback">
+          Please enter an email id.
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="validationCustomUsername" class="form-label">Mobile No</label>
+          <input disabled readonly type="number" class="form-control" id="mob" value="{{ person.mob}}" name="mob" aria-describedby="inputGroupPrepend" required>
+          <div class="invalid-feedback">
+            Please enter your Mobile Number.
+          </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validationCustomUsername" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" id="dob" value="{{ person.dob }}" name="dob" aria-describedby="inputGroupPrepend" required>
+          <div class="invalid-feedback">
+            Please enter your DOB.
+          </div>
+      </div>
+
+    <div class="col-md-6">
+      <label for="validationCustom03" class="form-label">City</label>
+      <input type="text" class="form-control" id="city" name="city" value="{{ person.city }}" required>
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label for="validationCustom04" class="form-label">State</label>
+      <select class="form-select" id="state" name="state" value="{{ person.state }}" required>
+        <option selected disabled value="">Choose...</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Karnataka">Karnataka</option>
+
+
+      </select>
+      <div class="invalid-feedback">
+        Please select a valid state.
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label for="validationCustom05" class="form-label">Pin</label>
+      <input type="number" class="form-control" id="pin" value="{{ person.pin }}" name="pin" required>
+      <div class="invalid-feedback">
+        Please provide a valid PINCode.
+      </div>
+    </div>
+   
+    <div class="col-12 mb-3">
+      <button class="btn btn-primary" type="submit">Update Details</button>
+      <a class="btn btn-danger" href="/persons/perdetails/{{person.id}}" type="button">Cancel</a>
+
+    </div>
+  </form>
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

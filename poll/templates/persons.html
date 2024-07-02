@@ -1,0 +1,51 @@
+{% extends 'master.html' %}
+
+{% block title  %}
+List of Persons
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid">
+
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+
+
+
+{% for a in persons %}
+
+<div class="col m-5">
+<div class="card" style="width: 18rem;">
+  {% load static %}
+    <img  src="{% static  'c.png' %}" class="card-img-top" alt="...">
+
+    <div class="card-body">
+      <h5 class="card-title">{{ a.fname }} {{ a.lname }}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="perdetails/{{ a.id }}" class="btn btn-primary">Details</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endfor %}
+</div>
+</div>
+
+<div class="col-4 mx-auto mt-5 mb-3">
+    <a class="btn btn-primary mx-auto d-block" href="/">Go back to Main Page</a>
+  </div>
+
+
+
+  <div class="container  text-center">
+    {% load static %}
+
+    <video width="80%" height="80%" autoplay muted src="{% static  'poll/videos/v1.mp4' %}"></video>
+  </div>
+
+{% endblock %}
+
